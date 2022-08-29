@@ -13,6 +13,7 @@ import com.example.demo.web.authority.annotation.AopTest;
 import com.example.demo.web.authority.annotation.IsStandard;
 import com.example.demo.web.client.RestClient;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.compress.utils.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * <p>Description: 事务层</p>
@@ -147,7 +151,6 @@ public class TestServiceImpl implements TestService {
         studentInfo.setStuSex(1L);
         studentInfo.setStuNo("cs00111");
         studentInfo.setStuName("小顾");
-        testSw2(studentInfo);
         testDao.save(studentInfo);
         Integer a = null;
         if (a.equals(23)) {
@@ -162,10 +165,28 @@ public class TestServiceImpl implements TestService {
         ddDao.save(dd);
     }
 
-    public void testSw2(StudentInfo studentInfo) {
-        studentInfo.setId("cs001112222");
-        testDao.save(studentInfo);
+    @Override
+    public HashMap<Double, Double> returnTest1() {
+        HashMap<Double, Double> result = new HashMap<>();
+        result.put(1.1, 2.2);
+        result.put(2.2, 3.3);
+        return result;
     }
+
+    @Override
+    public Object[] returnTest2() {
+        Double[] result1 = new Double[2];
+        result1[0] = 1.1;
+        result1[1] = 2.2;
+        Double[] result2 = new Double[2];
+        result2[0] = 1.1;
+        result2[1] = 2.2;
+        Object[] result = new Object[2];
+        result[0] = result1;
+        result[1] = result2;
+        return result;
+    }
+
 
 
 }

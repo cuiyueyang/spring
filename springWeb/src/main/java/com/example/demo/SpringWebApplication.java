@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+@ComponentScan("com.example")
 @EnableFeignClients(basePackages={"com.example.demo.**.client"})
 @EnableJpaAuditing
 @ComponentScan("com.example")

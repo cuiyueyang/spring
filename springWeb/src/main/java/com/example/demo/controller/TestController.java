@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -128,5 +129,18 @@ public class TestController {
     public void identity() {
         testService.identity();
     }
+
+    @GetMapping("returnTest1")
+    @ApiOperation(("返回类型测试1"))
+    public HashMap<Double, Double> returnTest1() {
+        return testService.returnTest1();
+    }
+
+    @GetMapping("returnTest2")
+    @ApiOperation(("返回类型测试2"))
+    public Object[] returnTest2() {
+        return testService.returnTest2();
+    }
+
 
 }

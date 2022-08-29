@@ -4,6 +4,9 @@ package com.example.demo.service;
 import com.example.demo.domain.StudentInfo;
 import com.example.demo.domain.Vehicle;
 
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * <p>Description: testService</p>
  * <p>Date: 2021/7/14 10:28 </p>
@@ -41,4 +44,8 @@ public interface TestService {
     void testSw();
 
     void identity();
+
+    HashMap<Double, Double> returnTest1();
+
+    Object[] returnTest2();
 }

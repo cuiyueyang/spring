@@ -82,3 +82,5 @@ server-url:
   rest: localhost:9300/illegal
   open: localhost:8302/springOpenApi
 
+openUrl: http://localhost:8302/springOpenApi/
+

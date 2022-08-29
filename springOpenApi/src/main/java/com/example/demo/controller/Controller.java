@@ -24,8 +24,7 @@ public class Controller {
     private OpenService openService;
 
     @GetMapping("test")
-    public String test() {
-        List<StudentInfo> a = openService.test();
-        return "success";
+    public List<StudentInfo> test() {
+        return openService.test();
     }
 }
