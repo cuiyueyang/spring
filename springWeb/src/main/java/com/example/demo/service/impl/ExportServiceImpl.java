@@ -5,6 +5,7 @@ import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
 import cn.afterturn.easypoi.excel.entity.TemplateExportParams;
+import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
 import cn.afterturn.easypoi.excel.entity.result.ExcelImportResult;
 import cn.afterturn.easypoi.word.WordExportUtil;
 import cn.hutool.json.JSONObject;
@@ -29,6 +30,7 @@ import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -173,10 +175,13 @@ public class ExportServiceImpl implements ExportService {
     @Override
     public ApiResponseEntity exportLocal() {
         //添加数据
-        StudentInfo studentInfo = testService.test3();
-        TemplateExportParams params = new TemplateExportParams("templates/easyPoiTemp.xlsx");
+        StudentInfo studentInfo = new StudentInfo("陈实施", 12L, 12L, LocalDateTime.now(), LocalDateTime.now(), 0);
+
+        TemplateExportParams params = new TemplateExportParams("templates/easyPoiTemp.xlsx", true);
         Map<String, Object> map = new HashMap<String, Object>(100);
         map.put("studentInfo", studentInfo);
+        map.put("stuName", "陈实施");
+        map.put("cs", "陈实施");
         //3.执行excel导出
         Workbook workbook = ExcelExportUtil.exportExcel(params, map);
         //4.创建文件存储路径
@@ -203,6 +208,8 @@ public class ExportServiceImpl implements ExportService {
             return ApiResponseEntity.fail("数据导出失败!" + e.getMessage());
         }
     }
+
+
 
     @Override
     public void simpleWordExport() {
