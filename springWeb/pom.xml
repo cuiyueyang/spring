@@ -10,9 +10,9 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>springWebDemo</artifactId>
+    <artifactId>springWeb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springWebDemo</name>
+    <name>springWeb</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
