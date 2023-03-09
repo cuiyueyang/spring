@@ -79,7 +79,7 @@ rabbitmq:
 #阿里云oss 配置
 aliyun:
   oss:
-    endpoint: http://oss-cn-hangzhou.aliyuncs.com
-    accessKeyId: LTAI4FiMEz5YECvwGgeGgviQ
-    accessKeySecret: DMVSOQEeq7BG4KWI30bzobdlIGkU65
-    bucketName: linkcld-tcsp
+    endpoint: cs
+    accessKeyId: cs
+    accessKeySecret: cs
+    bucketName: cs
