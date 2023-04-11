@@ -12,5 +12,5 @@ import java.util.List;
  * @author: cuiyy
  */
 public interface OpenService {
-    List<StudentInfo> test();
+    void test();
 }

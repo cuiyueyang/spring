@@ -24,7 +24,7 @@ public class Controller {
     private OpenService openService;
 
     @GetMapping("test")
-    public List<StudentInfo> test() {
-        return openService.test();
+    public void test() {
+        openService.test();
     }
 }

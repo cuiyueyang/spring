@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.mapper.TestMapper;
 import com.example.demo.service.OpenService;
 import com.example.demo.dao.TestDao;
 import com.example.demo.domain.StudentInfo;
@@ -21,10 +22,11 @@ import java.util.List;
 public class OpenServiceImpl implements OpenService {
 
     @Autowired
-    private TestDao testDao;
+    private TestMapper testMapper;
 
     @Override
-    public List<StudentInfo> test() {
-        return testDao.findAll();
+    public void test() {
+        Integer count = testMapper.test();
+        System.out.println(count);
     }
 }
