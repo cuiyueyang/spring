@@ -1,7 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.StudentInfo;
-
 import java.util.List;
 
 /**

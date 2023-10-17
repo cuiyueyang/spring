@@ -1,9 +1,8 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.mapper.TestMapper;
+import com.example.demo.db1.CsDao;
+import com.example.demo.db2.Cs2Dao;
 import com.example.demo.service.OpenService;
-import com.example.demo.dao.TestDao;
-import com.example.demo.domain.StudentInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,11 +21,14 @@ import java.util.List;
 public class OpenServiceImpl implements OpenService {
 
     @Autowired
-    private TestMapper testMapper;
+    private CsDao csDao;
+    @Autowired
+    private Cs2Dao cs2Dao;
 
     @Override
     public void test() {
-        Integer count = testMapper.test();
-        System.out.println(count);
+        System.out.println(csDao.count());
+        System.out.println(cs2Dao.count());
     }
+
 }

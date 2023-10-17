@@ -1,10 +1,6 @@
 spring:
   profiles:
     active: dev
-  # 数据库配置
-  datasource:
-    platform: mysql
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
   resources:
@@ -45,12 +41,19 @@ spring:
   profiles: dev
   # 数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: root
-    password: 12345678
-    druid:
-      test-on-borrow: true
-      test-while-idle: true
+    db1:
+      jdbc-url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 12345678
+      platform: mysql
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    db2:
+      jdbc-url: jdbc:mysql://192.168.90.120:3306/app_illegal_lis?useUnicode=true&characterEncoding=utf-8&useSSL=false&zeroDateTimeBehavior=CONVERT_TO_NULL
+      username: app_illegal_lis
+      password: app_illegal_lis
+      platform: mysql
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
   # jpa 打印sql
   jpa:
     show-sql: true

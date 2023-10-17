@@ -9,6 +9,9 @@ import cn.afterturn.easypoi.excel.entity.enmus.ExcelType;
 import cn.afterturn.easypoi.excel.entity.result.ExcelImportResult;
 import cn.afterturn.easypoi.word.WordExportUtil;
 import cn.hutool.json.JSONObject;
+import com.documents4j.api.DocumentType;
+import com.documents4j.api.IConverter;
+import com.documents4j.job.LocalConverter;
 import com.example.demo.common.ApiResponseEntity;
 import com.example.demo.config.ExportUtil;
 import com.example.demo.config.JFreeChartToFileUtil;
@@ -21,6 +24,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -209,7 +213,22 @@ public class ExportServiceImpl implements ExportService {
         }
     }
 
-
+    public static void main(String[] args) {
+        try  {
+        File inputWord = new DefaultResourceLoader().getResource("templates/xjyd_jbxx.docx").getFile();
+//        File inputWord = new File("templates/xjyd_jbxx.docx");
+            File outputFile = new DefaultResourceLoader().getResource("templates/2.pdf").getFile();
+//            File outputFile = new File("templates/xjyd_jbxx.pdf");
+            InputStream docxInputStream = new FileInputStream(inputWord);
+            OutputStream outputStream = new FileOutputStream(outputFile);
+            IConverter converter = LocalConverter.builder().build();
+            converter.convert(docxInputStream).as(DocumentType.DOCX).to(outputStream).as(DocumentType.PDF).execute();
+            outputStream.close();
+            System.out.println("success");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void simpleWordExport() {
