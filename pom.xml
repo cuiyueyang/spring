@@ -9,6 +9,7 @@
         <module>springWeb</module>
         <module>springOpenApi</module>
         <module>springTest</module>
+        <module>springSource</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
