@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import cn.hutool.core.io.FileUtil;
+import org.junit.Test;
 
 /**
  * @author: create by AlefTao
@@ -18,7 +19,8 @@ import cn.hutool.core.io.FileUtil;
  */
 public class ConvertToPdfUtil {
 
-    public static void main(String[] args) {
+    @Test
+    public void test1() {
         //		excel2Pdf("F:\\aaa\\加班.xls","F:\\aaa\\加班.pdf") ;
         String path1 = "/Users/cuiyueyang/Desktop/1.docx";
         String path2 = "/Users/cuiyueyang/Desktop/1.pdf";

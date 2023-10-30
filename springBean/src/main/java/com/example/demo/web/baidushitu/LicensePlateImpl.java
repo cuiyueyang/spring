@@ -1,6 +1,7 @@
 package com.example.demo.web.baidushitu;
 
 import cn.hutool.json.JSONObject;
+import org.junit.Test;
 
 import java.net.URLEncoder;
 
@@ -55,7 +56,8 @@ public class LicensePlateImpl {
         return null;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test1() {
 //        String str = licensePlate();
         String str1 = "{\"words_result\":{\"number\":\"豫H9039F\",\"vertexes_location\":[{\"x\":61,\"y\":42},{\"x\":553,\"y\":39},{\"x\":555,\"y\":181},{\"x\":60,\"y\":184}],\"color\":\"blue\",\"probability\":[0.9998950958,0.9999955893,0.9999792576,0.9999523163,0.9999879599,0.9999988079,0.9999742508,0.9999690652]},\"log_id\":1420199041667818812}\n";
         System.out.println(str1);
