@@ -5,6 +5,8 @@ import com.spire.doc.Document;
 import com.spire.doc.FileFormat;
 import com.spire.doc.documents.TextSelection;
 
+import java.util.List;
+
 /**
  * <p>Description: </p>
  * <p>Date: 2023/10/27 11:22</p>
@@ -15,7 +17,9 @@ import com.spire.doc.documents.TextSelection;
 public class SignDoc {
 
     public static void main(String[] args) throws Exception{
-        test1();
+//        test1();
+//        test2();
+        test3();
     }
 
     public static void test1() throws Exception{
@@ -33,6 +37,25 @@ public class SignDoc {
 
         // 保存文档
         doc.saveToFile("/Users/cuiyueyang/Desktop/送达回证-sign.docx", FileFormat.Docx);
+    }
+
+    /**
+     * 截取开始，结束中间的文字
+     * @throws Exception
+     */
+    public static void test2() throws Exception{
+        List<String> list =  SignDocUtil.getWordKey(null);
+        System.out.println("cs");
+    }
+
+    public static void test3() throws Exception{
+        //添加图片
+        String word1 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/tcsp/docx/1698630863769.docx?Expires=2013990857&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=oaYhD%2B1NOekuYF%2BNA0HdAZAKWsk%3D";
+        String word2 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/tcsp/docx/1698650295402.docx?Expires=2014010290&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=0wyjoLNU3GRYjrWmMx6jyjH2ZWE%3D";
+        String image = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/tcsp/jpg/1698630915112.jpg?Expires=2013990906&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=pVXAMefbkPpjp4RqX%2BBKSwcYWl0%3D";
+        Document doc = SignDocUtil.signPic(word1, image, 130, 370, 30, 70);
+        //添加文字
+        SignDocUtil.signTextTemp2(word1, image);
     }
 
 }

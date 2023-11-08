@@ -19,7 +19,9 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * @program: SignPdf
@@ -154,6 +156,8 @@ public class SignPdfUtil {
                     public void beginTextBlock() {
                     }
                 });
+        List<Integer> allIndex = new ArrayList<Integer>();
+        allIndex.add(1);
         return keyWordInfo;
     }
 
@@ -379,7 +383,7 @@ public class SignPdfUtil {
         //获取pdf
         byte[] pdfByte = urlTobyte(pdfUrl);
         for (int i = 0; i < pages; i++) {
-            pdfByte = findKeyWordLocation(pdfByte, signImgByte, "被询问人签字", i + 1);
+            pdfByte = findKeyWordLocation(pdfByte, signImgByte, "送 达 人 签名：", i + 1);
         }
         return pdfByte;
     }
