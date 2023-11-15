@@ -1,10 +1,14 @@
 package linkUtilTest;
 
 import com.example.demo.util.SignDocUtil;
+import com.example.demo.util.SignDocUtils;
 import com.spire.doc.Document;
 import com.spire.doc.FileFormat;
 import com.spire.doc.documents.TextSelection;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 /**
@@ -19,7 +23,8 @@ public class SignDoc {
     public static void main(String[] args) throws Exception{
 //        test1();
 //        test2();
-        test3();
+//        test3();
+        test4();
     }
 
     public static void test1() throws Exception{
@@ -56,6 +61,32 @@ public class SignDoc {
         Document doc = SignDocUtil.signPic(word1, image, 130, 370, 30, 70);
         //添加文字
         SignDocUtil.signTextTemp2(word1, image);
+    }
+
+    public static void test4() throws Exception{
+        //添加图片
+        String word1 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/aila/12761699516046140.docx?Expires=2014876046&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=rQZBe67pkSCvnTsUnVAw0sYVVak%3D";
+        String word2 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/aila/12561699516092921.docx?Expires=2014876092&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=jr9bLY2Bl5sqeKlzFfMPl7e6E0k%3D";
+        String image = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/tcsp/jpg/1698630915112.jpg?Expires=2013990906&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=pVXAMefbkPpjp4RqX%2BBKSwcYWl0%3D";
+//        XWPFDocument doc = SignDocUtils.signDocPic2(word1, image, 1, 9);
+//        FileOutputStream outputStream = new FileOutputStream(new File("/Users/cuiyueyang/Desktop/cs.docx"));
+//        doc.write(outputStream);
+//        outputStream.close();
+
+
+
+
+
+
+
+        //添加图片
+        Document doc = SignDocUtil.signPic(word1, image, 130, 370, 30, 70);
+        //添加文字
+        doc = SignDocUtil.signText(doc, "这是一段测试描述", 90, 680, 200, 30);
+
+
+        // 保存文档
+        doc.saveToFile("/Users/cuiyueyang/Desktop/送达回证-sign.docx", FileFormat.Docx);
     }
 
 }

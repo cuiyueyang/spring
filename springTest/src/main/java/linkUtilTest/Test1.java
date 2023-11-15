@@ -1,5 +1,6 @@
 package linkUtilTest;
 
+import com.example.demo.domain.StudentInfo;
 import com.example.demo.linkUtils.time.ClockUtil;
 import com.example.demo.linkUtils.time.DateUtil;
 
@@ -15,6 +16,13 @@ import java.util.Date;
  **/
 public class Test1 {
     public static void main(String[] args) {
+        StudentInfo studentInfo = new StudentInfo();
+        studentInfo.setId("id");
+
+        StudentInfo studentInfo2 = null;
+        studentInfo2 = studentInfo;
+
+
         System.out.println(ClockUtil.elapsedTime(System.currentTimeMillis()));
         System.out.println(ClockUtil.useDummyClock());
         System.out.println(ClockUtil.currentDate());
