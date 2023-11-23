@@ -20,8 +20,12 @@ public class SignTest {
         String word1 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/aila/12761699516046140.docx?Expires=2014876046&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=rQZBe67pkSCvnTsUnVAw0sYVVak%3D";
         String word2 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/aila/12561699516092921.docx?Expires=2014876092&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=jr9bLY2Bl5sqeKlzFfMPl7e6E0k%3D";
         String image = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/aila/95201699510728989.jpeg?Expires=2014870729&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=ZeedvnskKSxIQCDIp6RfYmyW69U%3D";
-        test1(word1, image);
-        test2(word2, image);
+//        test1(word1, image);
+//        test2(word2, image);
+        String word3 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/aila/59421700706064470.docx?Expires=2016066064&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=74wfIp34rQ3hIVUHSdCtCkkAE3A%3D";
+        String word4 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/aila/89231700706100861.docx?Expires=2016066100&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=lYbW4xXonv8WbaEdEgiZdcVkqSc%3D";
+//        test3(word3);
+        test4(word4);
     }
 
     /**
@@ -42,6 +46,20 @@ public class SignTest {
         XWPFDocument doc = SignDocUtils.signDocPicTable(word, image, 0, 0);
         SignDocUtils.signDocTextTable(doc, "2023年11月11日 11时11分", 0, 1);
         FileOutputStream outputStream = new FileOutputStream(new File("/Users/cuiyueyang/Desktop/cs2.docx"));
+        doc.write(outputStream);
+        outputStream.close();
+    }
+
+    public static void test3(String word) throws Exception{
+        XWPFDocument doc = SignDocUtils.seeDocText(word);
+        FileOutputStream outputStream = new FileOutputStream(new File("/Users/cuiyueyang/Desktop/cs1.docx"));
+        doc.write(outputStream);
+        outputStream.close();
+    }
+
+    public static void test4(String word) throws Exception{
+        XWPFDocument doc = SignDocUtils.seeDocTable(word);
+        FileOutputStream outputStream = new FileOutputStream(new File("/Users/cuiyueyang/Desktop/cs1.docx"));
         doc.write(outputStream);
         outputStream.close();
     }
