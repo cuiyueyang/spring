@@ -7,8 +7,12 @@ import com.spire.doc.FileFormat;
 import com.spire.doc.documents.TextSelection;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -24,8 +28,22 @@ public class SignDoc {
 //        test1();
 //        test2();
 //        test3();
-        test4();
+//        test4();
+        test();
     }
+    public static void test() {
+        try {
+            String imageUrl1 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/tcsp/jpg/1698630915112.jpg?Expires=2013990906&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=pVXAMefbkPpjp4RqX%2BBKSwcYWl0%3D";
+            String docUrl = "http://10.22.226.249:8080/aila-illegal/aila/86391701064766304.jpeg";
+            URL file = new URL(docUrl);
+            InputStream inputStream = file.openStream();
+            XWPFDocument document = new XWPFDocument(inputStream);
+            System.out.println(1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
     public static void test1() throws Exception{
         //添加图片
