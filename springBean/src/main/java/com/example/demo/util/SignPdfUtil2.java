@@ -31,13 +31,13 @@ import java.util.List;
  */
 
 @Slf4j
-public class SignPdfUtil {
+public class SignPdfUtil2 {
     // 秘钥密码
     public static String PASSWORD = "123456";
     // 秘钥文件路径
     public static String KEY_STORE_PATH = "D:/";
 
-    private SignPdfUtil() {
+    private SignPdfUtil2() {
     }
 
 
@@ -280,7 +280,7 @@ public class SignPdfUtil {
      * @return
      * @throws Exception
      */
-    public static byte[] signAddText(byte[] url, String contentText, Integer page, Integer x, Integer y, String remark)
+    public static byte[] signAddText(byte[] url, String contentText, Integer page, Integer x, Integer y)
             throws Exception {
         PdfReader reader = new PdfReader(url);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -324,7 +324,6 @@ public class SignPdfUtil {
         //content.setTextMatrix(70, 200);
         //内容居中，横纵坐标，偏移量
         Calendar cal = Calendar.getInstance();
-
         content2.endText();
         stamper.close();
         //关闭打开的原来PDF文件，不执行reader.close()删除不了（必须先执行stamper.close()，否则会报错）

@@ -16,9 +16,9 @@ public class SignPdf {
 
     public static void main(String[] args) throws Exception{
         //根据经纬度
-//        test1();
+        test1();
         //根据文字确定点位
-        test2();
+//        test2();
     }
 
     public static void test1() throws Exception{
@@ -32,7 +32,7 @@ public class SignPdf {
             String img2 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/tcsp/jpg/1698630915112.jpg?Expires=2013990906&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=pVXAMefbkPpjp4RqX%2BBKSwcYWl0%3D";
             byte[] bytes = SignPdfUtil.signCoordinate(pdf1, img2, 170, 350, 50, 110, 90, 1);
             bytes = SignPdfUtil.signAddText(bytes, year + "", 1, 432, 376, "授权委托代理人不放弃陈述、申辩、听证的权力");
-            FileOutputStream pdfOutputStream = new FileOutputStream("/Users/cuiyueyang/Desktop/送达回证-sign.pdf");
+            FileOutputStream pdfOutputStream = new FileOutputStream("/Users/cuiyueyang/Desktop/送达回证-sign1.pdf");
             pdfOutputStream.write(bytes);
             pdfOutputStream.close();
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class SignPdf {
             String img2 = "http://linkcld-tcsp.oss-cn-hangzhou.aliyuncs.com/tcsp/jpg/1698630915112.jpg?Expires=2013990906&OSSAccessKeyId=LTAI5tJZijZ5wB2PDNGthdV7&Signature=pVXAMefbkPpjp4RqX%2BBKSwcYWl0%3D";
             byte[] bytes = SignPdfUtil.signImgAndText(pdf1, img2);
             bytes = SignPdfUtil.signAddText(bytes, year + "", 1, 432, 376, "授权委托代理人不放弃陈述、申辩、听证的权力");
-            FileOutputStream pdfOutputStream = new FileOutputStream("/Users/cuiyueyang/Desktop/送达回证-sign.pdf");
+            FileOutputStream pdfOutputStream = new FileOutputStream("/Users/cuiyueyang/Desktop/送达回证-sign2.pdf");
             pdfOutputStream.write(bytes);
             pdfOutputStream.close();
         } catch (Exception e) {
