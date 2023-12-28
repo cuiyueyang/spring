@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <p>Description: 大数据处理</p>
+ * <p>Description: 数据测试</p>
  * <p>Date: 2021/9/18 10:08 </p>
  *
  * @version v1.0.0
  * @author: cuiyy
  */
-@Api("大数据处理")
+@Api("数据测试")
 @RestController
 @Slf4j
 @RequestMapping("bigdataControler")
