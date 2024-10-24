@@ -8,6 +8,7 @@ import com.example.demo.domain.StudentInfo;
 import com.example.demo.service.RedisService;
 import com.example.demo.util.JsonMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.compress.utils.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -49,7 +50,9 @@ public class RedisServiceImpl implements RedisService {
         if (StringUtils.isNotBlank(stuNo)) {
             String jsonValue = redisUtil.get(stuNo);
             if (StringUtils.isBlank(jsonValue)) {
-                List<StudentInfo> studentInfos = testDao.findByStuNo(stuNo);
+                List<StudentInfo> studentInfos = Lists.newArrayList();
+                StudentInfo studentInfo = new StudentInfo();
+                studentInfos.add(studentInfo);
                 if (CollectionUtils.isNotEmpty(studentInfos)) {
                     jsonValue = JsonMapper.defaultMapper().toJson(studentInfos);
                     int invalidTime = getInvalidTime(stuNo);

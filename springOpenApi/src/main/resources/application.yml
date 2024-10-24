@@ -86,3 +86,7 @@ aliyun:
     accessKeyId: cs
     accessKeySecret: cs
     bucketName: cs
+
+cron:
+  test1: 0/1 * * * * ?
+  test2: 0/2 * * * * ?

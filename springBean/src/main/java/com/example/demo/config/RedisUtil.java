@@ -18,7 +18,7 @@ import redis.clients.jedis.JedisPool;
 public class RedisUtil {
     @Autowired
     private JedisPool jedisPool;
-    private static final int DATABASE = 1;
+    private static final int DATABASE = 3;
 
     /**
      * 通过key获取储 存在redis中的value
